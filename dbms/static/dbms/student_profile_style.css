@@ -1,0 +1,136 @@
+*
+		{
+			margin: 0px;
+			padding: 0px;
+		}
+
+		body
+		{
+		    background-image: url("student_profile_style.jpg");
+			position: absolute;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 100%;
+			height: 100vh;
+			background-attachment: fixed;
+			background-blend-mode: lighten;
+			background-color: transparent;
+		}
+		.container
+		{
+			background-color: transparent;
+			position: absolute;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 100%;
+			height: 100vh;
+		}
+		.front
+		{
+			width: 60%;
+			height: 70%;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+			font-size: 30px;
+			box-sizing: border-box;
+			padding-top: 40px;
+
+		}
+		.head
+		{
+			font-size: 30px;
+			font-style: bold;
+			margin-right: auto;
+			margin-left: auto;
+			padding-top: 2%;
+
+		}
+		.line
+		{
+			width: 100%;
+			height: 1px;
+			background-color: #009900;
+			margin-bottom: 14px;
+			margin-top: 2px;
+		}
+		.tbl1
+		{
+			text-align: center;
+			width: 700px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		img
+		{
+			width: 100px;
+			height: 100px;
+			padding-right: 60px;
+
+		}
+
+		.wlcm
+		{
+			float: left;
+			font-size: 20px;
+			background-color: transparent;
+		}
+
+
+		.btn1
+		{
+			width: 125px;
+			font-size: 15px;
+			height: 30px;
+			color: #009900;
+			border: 0px;
+			outline: none;
+			border-radius: 25px;
+			transition: .2s;
+			float: right;
+			border:1px solid #009900;
+		}
+		.btn1:hover
+		{
+			color: white;
+			background-color: #009900;
+			cursor: pointer;
+		}
+		.btn2
+		{
+			width: 125px;
+			font-size: 15px;
+			height: 30px;
+			color: #009900;
+			border: 0px;
+			outline: none;
+			border-radius: 25px;
+			transition: .2s;
+			border:1px solid #009900;
+			margin-left: 150px;
+			float: left;
+		}
+		.btn2:hover
+		{
+			color: white;
+			background-color: #009900;
+			cursor: pointer;
+		}
+		input[type='file']::-webkit-file-upload-button
+		{
+			padding: 20 30;
+			cursor: pointer;
+			color: black;
+			width: 180px;
+			height: 35px;
+			outline: none;
+			border:none;
+			font-size: 16px;
+		}
+		.sub
+		{
+			margin-left:0px;
+			float: right;
+		}

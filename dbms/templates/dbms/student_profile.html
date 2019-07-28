@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>student_profile</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'dbms/student_profile_style.css' %}">
+    <style type="text/css">
+		.reg{
+			outline: none;
+			border: none;
+			background-color: #ffffff;
+			color: #000000;
+			font-weight: bold;
+			font-size: 30px;
+			margin-left: -13%;
+			background-color: transparent;
+		}
+		.a_btn1
+		{
+			padding-left:45px;
+			padding-right:45px;
+			padding-top:7px;
+			padding-bottom:7px;
+			float:right;
+			font-size:18px;
+			color: #009900;
+			border: 0px;
+			outline: none;
+			border-radius: 25px;
+			transition: .2s;
+			border:1px solid #009900;
+			text-decoration: none;
+		}
+		.a_btn1:hover
+		{
+			color: white;
+			background-color: #009900;
+			cursor: pointer;
+		}
+		.title_txt
+		{
+			width: 200px;
+			height: 20px;
+			margin-bottom: 5px;
+			padding: 5px;
+			margin-left: 23%;
+			border-radius: 2px;
+			border: 1px solid #000000;
+		}
+		.view
+		{
+			background-color: #4CAF50; /* Green */
+		  	border: none;
+		  	color: white;
+			padding: 5px 32px;
+		  	text-align: center;
+		  	text-decoration: none;
+		  	display: inline-block;
+		  	font-size: 16px;
+		  	border-radius: 2px;
+		  	margin-bottom: 5px;
+		}
+		.required
+		{
+			color: red;
+			font-size: 14px;
+		}
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="head">
+        <table class="tbl1" border="0px" align="center">
+            <tr>
+                <td rowspan="3">
+                    <img src="{% static 'dbms/nitklogo.png' %}">
+                </td>
+                <td>National Institute of Technology Calicut</td>
+
+            </tr>
+            <tr>
+                <td>Calicut</a></td>
+            </tr>
+
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div class="front">
+        <form action="/final_submit/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table border="0px;" width="100%">
+                <tr>
+                    <td width="18%"><font class="wlcm">Welcome</font></td>
+                    <td>
+                        <input type="text" name="name" hidden value="{{ mt.Name }}">
+                        <font class="wlcm"><strong>{{ mt.Name }}</strong>&nbsp;!</font>
+                        <input type="text" name="reg" hidden value="{{ mt.Registration }}">
+                        <font class="reg">{{ mt.Registration }}</font>
+                        <button class="btn1" type="submit" name="f_sub" value="final_logout">Back</button>
+                        <!--<a href="#" class="a_btn1">logout</a>-->
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="line"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><font class="wlcm">Course Name</font></td>
+                    <td><font class="wlcm">: {{ c_name }} {{c_n}}</font>
+                        <input type="text" name="msg" hidden value="{{ c_name }}{{c_n}}"></td>
+                </tr>
+                <tr>
+                    <td><font class="wlcm">Course Code</font></td>
+                    <td><input type="text" name="c_code" hidden value="{{c_c}}{{c_code}}">
+                        <font class="wlcm">:&nbsp;{{c_code}} {{c_c}}</font></td>
+                </tr>
+            </table>
+            <!------------------------    Table 2  ----------------------------------------------------->
+            <table border="0px" width="100%">
+                <tr>
+                    <td><font class="sub" color="black" size="5px">Project Title </font></td>
+                    <td align="left">&nbsp;<input type="text" name="title" class="title_txt"><label class="required">&nbsp;{{
+                        note }}</label></td>
+                </tr>
+                <tr>
+                    <td><font class="sub" color="black" size="5px">Upload Assignment </font></td>
+                    <td><input type="file" name="doc_upload"></td>
+                </tr>
+                <tr>
+                    <td><font class="sub">&nbsp;</font></td>
+                    <td>
+                        <button class="btn2" name="f_sub" type="submit" value="pdf_submit">submit</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <!------------------------    Table 3  ----------------------------------------------------->
+            <table border="0px" width="100%">
+                <tr>
+                    <td colspan="4">
+                        <div class="line"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="15%">Date</td>
+                    <td>Project Title</td>
+                    <td width="15%">status</td>
+                    <td width="20%"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="5">
+                        <div class="line"></div>
+                    </td>
+                </tr>
+                {% for p in pdf reversed %}
+                <tr>
+                    <td width="20%"><font size="4px">{{p.submit_date|date:"d/n/o"}}</font></td>
+                    <td><font size="4px">{{ p.Project_title }}</font></td>
+                    </td>
+                    <td width="15%"><strong><font size="4px">{{ p.Status }}</font></strong></td>
+                    <td width="10%"><strong><font size="4px"><img src="{{ p.File.url }}">
+                        <video autoplay loop muted class="video_effect">
+                            <source src="{{ p.File.url }}" type="video/mp4">
+
+                        </video>{{ p.File.url }}
+                        <a href="{{ p.File.url }}" class="view" target="_blank">view</a></font></strong></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

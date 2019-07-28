@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NITC</title>
+    {% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'dbms/index_style.css' %}">
+</head>
+<body>
+     <div class="container">
+     	<div class="head">
+     			<form accept="#" method="POST">
+     			<table class="tbl1" border="0px" align="center">
+     			<tr>
+     				<td rowspan="3">
+     					<img src="{% static 'dbms/logo.jpg' %}">
+     				</td>
+     				<td>National Institute of Technology Calicut</td>
+
+     			</tr>
+     			<tr>
+     				<td>Calicut</td>
+     			</tr>
+
+     			<tr>
+     				<td>&nbsp;</td>
+     			</tr>
+     		</table>
+     		</form>
+     	</div>
+          <div class="patti">
+          <font class="title">Assignment Work Submission </font>
+          </div>
+
+     	<div class="second">
+     			"Confluence of different wisdom rivers<br>
+     			make Ocean of influence on each other."<br>
+     	</div>
+     	<table border="0px" class="tbl2">
+     		<tr>
+     			<td >
+     				<a href="{% url 'signin' %}" class="a_login">login</a>
+     			</td>
+     			<td>
+     				<a href="signup" class="a_sign">sign up</a>
+     			</td>
+     		</tr>
+     	</table>
+     	</div>
+</body>
+</html>

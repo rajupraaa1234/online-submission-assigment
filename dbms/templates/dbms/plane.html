@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faculty Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'dbms/teacher_page_style.css' %}">
+	<style type="text/css">
+        .line
+		{
+			width: 100%;
+			height: 1px;
+			background-color: #009900;
+			margin-bottom: 14px;
+			margin-top: 2px;
+		}
+
+		.tbl2
+        {
+            height: 91.6%;
+            width: 80%;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+        }
+        .view
+		{
+			background-color: #4CAF50; /* Green */
+		  	border: none;
+		  	color: white;
+			padding: 5px 32px;
+		  	text-align: center;
+		  	text-decoration: none;
+		  	display: inline-block;
+		  	font-size: 16px;
+		  	border-radius: 2px;
+		  	margin-bottom: 5px;
+		}
+		.btn_save
+		{
+		    background-color: #4CAF50; /* Green */
+		  	border: none;
+		  	color: white;
+			padding: 5px 32px;
+		  	text-align: center;
+		  	text-decoration: none;
+		  	display: inline-block;
+		  	font-size: 16px;
+		  	border-radius: 2px;
+		  	margin-bottom: 5px;
+		}
+		.btn_save:hover
+		{
+			cursor: pointer;
+		}
+
+    </style>
+</head>
+<body>
+       <div id="container">
+           <form action="/btn_save/" method="POST">
+			{% csrf_token %}
+		<div id="main">
+			<div class="head">
+				<table class="tbl1" border="0px" align="center">
+     			<tr>
+     				<td rowspan="3">
+     					<img src="{% static 'dbms/nitklogo.png' %}">
+     				</td>
+     				<td>National Institute of Technology Calicut</td>
+
+     			</tr>
+     			<tr>
+     				<td>Calicut</td>
+     			</tr>
+
+     			<tr>
+     				<td></td>
+     			</tr>
+     		</table>
+			</div>
+<!------------------ Table 1 --------------------------------------------------------------------------------------->
+			<table id="student_table" border="0">
+				<tr>
+					<td>
+						<input type="text" name="subject_name" hidden value="{{subject_name}}">
+						<strong><font color="black">Course : {{subject_name}}</font></strong>
+					</td>
+
+					<td>
+						<input type="text" name="subject_code" hidden value="{{subject_code}}"><strong><font color="black">Course code : {{subject_code}}</font></strong>
+					</td>
+					<td>
+						<button class="btn1" type="submit" name="f_button" value="f_logout">logout</button>
+					</td>
+				</tr>
+			</table>
+<!------------------ Table 2 --------------------------------------------------------------------------------------->
+
+           <div class="tbl2">
+               <strong><input type="text" name="rgst" hidden value="{{rgst}}"><label style="font-size: 30px;">Registration No. : {{rgst}}</label></strong>
+               <table border="0px" width="100%">
+					<tr>
+						<td colspan="5"><div class="line"></div></td>
+					</tr>
+					<tr align="center" style="font-size: 20px; font-weight: bold;">
+						<td width="10%">Date</td>
+						<td width="20%">Project Title</td>
+						<td width="10%">Marks</td>
+                        <td width="10%">View</td>
+					</tr>
+
+					<tr>
+						<td colspan="5"><div class="line"></div></td>
+					</tr>
+
+					{% for p in noty reversed %}
+					<tr align="center">
+						<td width="20%" ><input type="text" name="registration" hidden value="{{rgst}}"><font size="4px" >{{p.submit_date|date:"d/n/o"}}</font></td>
+						<td><input type="text" name="title" hidden value="{{ p.Project_title }}"><font size="4px" >{{ p.Project_title }}</font></td></td>
+
+						<td  width="15%"><input type="text" name="marks" hidden value="{{ p.Status }}"><strong>{{ p.Status }}</strong></td>
+                        <td width="10%"><strong><font size="4px" ><a href="{{ p.File.url }}" class="view" target="_blank">view</a></font></strong></td>
+                        <td width="15%"><button type="submit" name="f_button" value="{{ p.Project_title }}" class="btn_save">update</button></td>
+					</tr>
+					{% endfor %}
+				</table>
+               <!--<center><button type="submit" name="f_button" value="btn_save" class="btn_save">save</button></center>-->
+           </div>
+		</div>
+           </form>
+       </div>
+</body>
+</html>

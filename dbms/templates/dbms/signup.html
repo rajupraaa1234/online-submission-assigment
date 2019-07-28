@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'dbms/sign_up_style.css' %}">
+	<style type="text/css">
+		.patti
+		{
+			width: 100%;
+			height: 50px;
+			background-color: white;
+			text-align: center;
+			font-size: 40px;
+			color: green;
+			margin-top:10px;
+			margin-bottom:-35px;
+			opacity: .7;
+			transition: 0.2s;
+		}
+		.aa
+		{
+			margin-left:80px;
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<form action="/register/" method="post">
+		{% csrf_token %}
+		<div id="container">
+			<!------------ notification --------------------->
+			{% if note is not None %}
+			<div class="patti">
+				<font class="title">{{ note }}</font>
+			</div>
+			{% endif %}
+			<!------------ notification --------------------->
+			<div id="main">
+				<table id="student_signup_table" border="0px" >
+					<tr>
+						<td class="head_bg">
+							<font class="head_font">Sign up</font>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<font class="inp_type">Name :</font>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input class="inp_box" type="text" name="name" value="{{ name }}" required placeholder="Name">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<font class="inp_type">Registration No. :</font>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input class="inp_box" type="text" name="registration" value="{{ reg }}" required placeholder="Registration No.">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<font class="inp_type">Course :</font>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input class="inp_box" type="text" name="course" value="{{ course }}" required placeholder="Course">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<font class="inp_type">E-mail :</font>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input class="inp_box" type="email" name="email" value="{{ email }}" required placeholder="E-mail">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<font class="inp_type">Password :</font>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input class="inp_box" type="password" name="password" required placeholder="********">
+						</td>
+					</tr>
+					<tr>
+
+						<td>
+							<font class="inp_type">Confirm Password :</font>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input class="inp_box" type="password" name="c_password" required placeholder="********">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<font class="inp_type">Gender :</font>
+						</td>
+					</tr>
+					<tr>
+
+						<td>
+							<input class="rd" type="radio" name="radio" value="Male" checked>&nbsp;&nbsp;&nbsp;&nbsp;<font>Male</font> &nbsp;&nbsp;
+							<input class="rd"  type="radio" name="radio" value="Female">&nbsp;&nbsp;&nbsp;&nbsp;<font>Female</font>
+						</td>
+					</tr>
+					<tr>
+
+						<td>
+							<button type="submit" class="signup_btn">sign up</button>
+							<a href="{% url 'signin' %}" class="aa">clich here login</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+*
+		{
+			margin: 0px;
+		}
+		body
+		{
+		    background-image: url("1.jpg");
+			position: absolute;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 100%;
+			height: 100vh;
+			background-attachment: fixed;
+			background-blend-mode: lighten;
+			background-color: white;
+		}
+		.container
+		{
+			position: absolute;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 100%;
+			height: 100vh;
+			background-attachment: fixed;
+		}
+		.front
+		{
+			width: 900px;
+			height: 450px;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+			color: white;
+			font-size: 30px;
+			box-sizing: border-box;
+			padding-top: 40px;
+		}
+		.head
+		{
+			font-size: 30px;
+			font-style: bold;
+			margin-right: auto;
+			margin-left: auto;
+			padding-top: 2%;
+		}
+		.tbl1
+		{
+			text-align: center;
+			width: 700px; 
+			margin-left: auto;
+			margin-right: auto;
+		}
+		img
+		{
+			width: 100px;
+			height: 100px;
+			padding-right: 60px;
+			
+		}
+		.tbl2
+		{
+			width: 100%;
+			height: 100%;
+			font-size: 15px;
+			color: black;
+			padding-top: 30px;
+			
+		}
+		.wlcm
+		{
+			float: left;
+			color: black;
+			font-size: 20px;
+		}
+		.line
+		{
+			width: 100%;
+			height: 1px;
+			background-color: #009900;
+			margin-bottom: 15px;
+		}
+
+		.btn1
+		{
+			width: 125px;
+			font-size: 15px;
+			height: 30px;
+			color: #009900;
+			border: 0px;
+			outline: none;
+			border-radius: 25px;
+			transition: .2s;
+			float: right;
+			border:1px solid #009900;
+		}
+		.btn1:hover
+		{
+			color: white;
+			background-color: #009900;
+			cursor: pointer;
+		}

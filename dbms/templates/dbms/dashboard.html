@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Profile</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'dbms/dashboard_style.css' %}">
+	<style type="text/css">
+		.reg{
+			outline: none;
+			border: none;
+			background-color: #ffffff;
+			color: #000000;
+			font-weight: bold;
+			font-size: 30px;
+
+		}
+		.txt
+		{
+			text-align: center;
+			width: 50px;
+			color: black;
+			background-color: transparent;
+
+			font-family: Times New Roman;
+            font-size: 15px;
+
+		}
+		.ch_btn
+		{
+			outline: none;
+			border: none;
+			color:#0000ff;
+			background-color: transparent;
+		}
+		.ch_btn:hover
+		{
+			cursor: pointer;
+		}
+		.a_btn1
+		{
+			padding-left:45px;
+			padding-right:45px;
+			padding-top:7px;
+			padding-bottom:7px;
+			float:right;
+			font-size:18px;
+			color: #009900;
+			border: 0px;
+			outline: none;
+			border-radius: 25px;
+			transition: .2s;
+			border:1px solid #009900;
+			text-decoration: none;
+		}
+		.a_btn1:hover
+		{
+			color: white;
+			background-color: #009900;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	 <div class="container">
+     	<div class="head">
+     			<table class="tbl1" border="0px" align="center">
+     			<tr>
+     				<td rowspan="3">
+     					<img src="{% static 'dbms/nitklogo.png' %}">
+     				</td>
+     				<td>National Institute of Calicut</td>
+
+     			</tr>
+     			<tr>
+     				<td>Calicut</td>
+     			</tr>
+
+     			<tr>
+     				<td></td>
+     			</tr>
+     		</table>
+     	</div>
+		 <form action="/detail/" method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+     		<!--marquee style="color: red" behavior ="alternate" >Notification : last date for DBMS assignment submission is 08-04-2019 till 05:00 pm</marquee!-->
+     	<div class="front">
+			<font class="wlcm">Welcome<input type="text" hidden name="ss_name" value="{{ sr.Name }}"> <strong>{{sr.Name}}</strong>&nbsp;!</font>
+
+                <input type="text" name="reg" hidden value="{{sr.Registration}}"><strong class="reg">{{sr.Registration}}</strong>
+					<button class="btn1" type="submit" name="c_btn" value="s_logout">logout</button>
+				<!--<a href="{% url 'index'%}" class="a_btn1">logout</a>-->
+     			<table border="0px" class="tbl2" cellspacing="5px;">
+
+     				<tr >
+     					<td><b>Course Code</b></td>
+     					<td><b>Course Name</b></td>
+     					<td><b>Update</b></td>
+     				</tr>
+
+     				<tr>
+     					<td colspan="4"><div class="line"></div></td>
+     				</tr>
+
+     				<tr>
+     					<td><input type="text" name="ma_610" hidden value="MA610">MA610</td>
+     					<td>DSA Lab using OOP Concept</td>
+     					<td><button class="ch_btn" type="submit" name="c_btn" value="ma610">click here</button></td>
+     				</tr>
+
+     				<tr>
+     					<td colspan="4"><div class="line"></div></td>
+     				</tr>
+
+     				<tr>
+     					<td><input type="text" name="ma_611" hidden value="MA611">MA611</td>
+     					<td>Database Management Systems Lab</td>
+     					<td><button class="ch_btn" type="submit" name="c_btn" value="ma611">click here</button></td>
+     				</tr>
+
+     				<tr>
+     					<td colspan="4"><div class="line"></div></td>
+     				</tr>
+
+     				<tr>
+     					<td><input type="text" name="ma_606" value="MA606" hidden class="txt">MA606</td>
+     					<td>Data Structures and Algorithms</td>
+     					<td><button class="ch_btn" type="submit" name="c_btn" value="ma606">click here</button></td>
+     				</tr>
+
+     				<tr>
+     					<td colspan="4"><div class="line"></div></td>
+     				</tr>
+
+
+     				<tr>
+     					<td><input type="text" name="ma_609" value="MA609" hidden class="txt">MA609</td>
+     					<td>Object Oriented Programming</td>
+     					<td><button class="ch_btn" type="submit" name="c_btn" value="ma609">click here</button></td>
+     				</tr>
+
+     				<tr>
+     					<td colspan="4"><div class="line"></div></td>
+     				</tr>
+
+     				<tr>
+     					<td><input type="text" name="ma_607" value="MA607" hidden class="txt">MA607</td>
+     					<td>Database Management Systems</td>
+     					<td><button class="ch_btn" type="submit" name="c_btn" value="ma607">click here</button></td>
+     				</tr>
+
+     				<tr>
+     					<td colspan="4"><div class="line"></div></td>
+     				</tr>
+
+     				<tr>
+     					<td><input type="text" name="ma_608" value="MA608" hidden class="txt">MA608</td>
+     					<td>Computational Mathematics</td>
+     					<td><button class="ch_btn" type="submit" name="c_btn" value="ma608">click here</button></td>
+     				</tr>
+
+     				<tr>
+     					<td colspan="4"><div class="line"></div></td>
+     				</tr>
+
+
+     				<tr>
+     					<td><input type="text" name="ma_647" value="MA647" hidden class="txt">MA647</td>
+     					<td>Cloud Computing</td>
+     					<td><button class="ch_btn" type="submit" name="c_btn" value="ma647">click here</button></td>
+     				</tr>
+
+
+     				<tr>
+     					<td colspan="4"><div class="line"></div></td>
+     				</tr>
+
+     				<tr>
+     					<td><input type="text" name="ma_690" value="MA690" hidden class="txt">MA690</td>
+     					<td>Seminar 1</td>
+     					<td><button class="ch_btn" type="submit" name="c_btn" value="ma690">click here</button></td>
+     				</tr>
+					<tr>
+     					<td colspan="4"><div class="line"></div></td>
+     				</tr>
+     			</table>
+     		</form>
+		</div>
+	 </div>
+</body>
+</html>
